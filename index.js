@@ -3,27 +3,28 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+const generateHTML = require("./src/generateHTML");
 
 // Series of questions to get the managers information
 const managerQuestions = [
   {
     type: "input",
-    name: "manager_name",
+    name: "name",
     message: "Enter the team manager's name:",
   },
   {
     type: "input",
-    name: "manager_id",
+    name: "id",
     message: "Enter the team manager's employee ID:",
   },
   {
     type: "input",
-    name: "manager_email",
+    name: "email",
     message: "Enter the team manager's email address:",
   },
   {
     type: "input",
-    name: "manager_office",
+    name: "office",
     message: "Enter the team manager's office number:",
   },
 ];
@@ -99,7 +100,7 @@ const addManager = () => {
     .then(answers => {
 
       // Create a manager object
-      const manager = new Manager(answers.manager_name, answers.manager_id, answers.manager_email, answers.manager_office);
+      const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
       
       // Add the manager to the team array
       teamArray.push(manager); 
@@ -122,9 +123,8 @@ const buildTeam = () => {
       {
         addTeamMember(answers.new_member);
       } else{
-        console.log(teamArray);
-        console.log("Successfuly generated team webpage!");
-        // TODO: generate HTML and CSS
+        const html = generateHTML(teamArray);
+        console.log(html);
       }
     });
 };
