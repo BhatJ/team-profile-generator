@@ -14,6 +14,8 @@ generateHTML = (teamData) => {
   return htmlPage;
 };
 
+// This function will generate an employee card.
+// It uses the employees role to gather role specific information
 const generateCard = function (teamMember) {
 
   const role = teamMember.getRole();
@@ -30,7 +32,7 @@ const generateCard = function (teamMember) {
     case 'Engineer':
       icon = '💻';
       uniqueData = 'GitHub';
-      uniqueValue = teamMember.github;
+      uniqueValue = `<a href="https://github.com/${teamMember.github}" target="_blank">${teamMember.github}</a>`;
       break;
     case 'Intern':
       icon = '🧑‍🎓';
@@ -91,5 +93,5 @@ const generateTeamPage = function (teamCardsString) {
   `;
 };
 
-// export to index
+// export generateHTML function
 module.exports = generateHTML;
