@@ -4,6 +4,7 @@ const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const generateHTML = require("./src/generateHTML");
+const { writeFile } = require('fs').promises;
 
 // Series of questions to get the managers information
 const managerQuestions = [
@@ -123,8 +124,9 @@ const buildTeam = () => {
       {
         addTeamMember(answers.new_member);
       } else{
-        const html = generateHTML(teamArray);
-        console.log(html);
+
+        // Write the generated HTML page to a file
+        writeFile("./dist/index.html", generateHTML(teamArray));
       }
     });
 };
