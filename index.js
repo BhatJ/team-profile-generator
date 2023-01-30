@@ -1,5 +1,8 @@
 // Include packages needed for this application
 const inquirer = require("inquirer");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 
 // Series of questions to get the managers information
 const managerQuestions = [
@@ -78,7 +81,7 @@ const internQuestions = [
   },
   {
     type: "input",
-    name: "github",
+    name: "school",
     message: "Enter the interns's school:",
   },
 ];
@@ -94,8 +97,12 @@ const teamArray = [];
 const addManager = () => {
   return inquirer.prompt (managerQuestions)
     .then(answers => {
+
+      // Create a manager object
+      const manager = new Manager(answers.manager_name, answers.manager_id, answers.manager_email, answers.manager_office);
       
-      teamArray.push(answers); 
+      // Add the manager to the team array
+      teamArray.push(manager); 
 
       buildTeam();
     });
@@ -108,9 +115,7 @@ const addManager = () => {
 const buildTeam = () => {
   return inquirer.prompt (teamQuestion)
     .then(answers => {
-      
-      teamArray.push(answers); 
-
+  
       // If new_member is an engineer or intern, add a new team member.
       // Otherwise, the team has been defined, render the webpage
       if (answers.new_member !== "Finish building the team")
@@ -139,7 +144,16 @@ const addTeamMember = (role) => {
   return inquirer.prompt (questions)
   .then(answers => {
     
-    teamArray.push(answers); 
+    let teamMember;
+    if (role === "Engineer")
+    {
+      teamMember = new Engineer(answers.name, answers.id, answers.email, answers.github);
+    } else
+    {
+      teamMember = new Intern(answers.name, answers.id, answers.email, answers.school);
+    }
+
+    teamArray.push(teamMember); 
     buildTeam();
   });
 }
