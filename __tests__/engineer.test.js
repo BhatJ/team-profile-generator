@@ -54,7 +54,7 @@ describe("Engineer", () => {
   describe("getName", () => {
     it("should test that getName returns the expected name", () => {
 
-      // Create an emplengineeroyee object with expected parameters
+      // Create an engineer object with expected parameters
       const engineer = new Engineer("Sarah", 3, "sarah@sarah.com", "sarah234");
 
       // Use getName method to get the engineer's name
