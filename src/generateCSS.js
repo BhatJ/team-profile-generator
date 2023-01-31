@@ -1,4 +1,6 @@
-
+// generate CSS style sheet
+const generateCSS = function () {
+  return `
   .navbar {
     background-color: rgb(248, 83, 83);
     color: white;
@@ -28,4 +30,8 @@
       padding-left: 5%;
       padding-right: 0;
   }
-  
+  `;
+};
+
+// export generateCSS function
+module.exports = generateCSS;
