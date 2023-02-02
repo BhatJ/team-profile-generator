@@ -38,5 +38,5 @@ THEN I exit the application, and the HTML is generated
 * The application will use answers provided to generate a professional team profile webpage.
 * The wepage can be found in './dist/' folder
 * 
-* Walkthrough - [Readme walkthrough](https://drive.google.com/file/d/1EvZbNK357aV0_dpLnDe2IJPRewDA-QXw/view)
+* Walkthrough - [Team Profile HTML generator walkthrough](https://drive.google.com/file/d/1EvZbNK357aV0_dpLnDe2IJPRewDA-QXw/view)
 
