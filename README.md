@@ -37,6 +37,5 @@ THEN I exit the application, and the HTML is generated
 * Follow the prompts to answer questions about the team
 * The application will use answers provided to generate a professional team profile webpage.
 * The wepage can be found in './dist/' folder
-* 
-* Walkthrough - [Team Profile HTML generator walkthrough](https://drive.google.com/file/d/1EvZbNK357aV0_dpLnDe2IJPRewDA-QXw/view)
+* Walkthrough - [Team Profile HTML generator walkthrough](https://drive.google.com/file/d/1c6hOz2higHXrcA17FZttiuAqGuTifPHs/view?usp=share_link)
 
